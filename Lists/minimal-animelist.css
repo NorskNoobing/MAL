@@ -1,0 +1,69 @@
+/*Main Theme*/
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarity%20Theme/Theme%20-%20Compressed.css";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarity%20Theme/Mod%20-%20Dark%20Mode%20Compressed.css";
+
+/*Large image on hover*/
+@\import "https://malscraper.azurewebsites.net/covers/anime/YOURNAME/presets/dataimagelinkbefore";
+@\import "https://malscraper.azurewebsites.net/covers/manga/YOURNAME/presets/dataimagelinkbefore";
+@\import "https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarity%20Theme/Mod%20-%20Hover%20Image%20On%20Circle%20Compressed.css";
+
+body { --avatar: url(https://cdn.myanimelist.net/images/userimages/8560663.webp?t=1636101600); }
+
+body { --name: "Norsk\a   Noobing"; }
+
+body { --character: url(https://i.pinimg.com/originals/56/b3/d2/56b3d2cdf4082b5eeaa2c9da3cf34cd0.png); }
+
+/*-S-T-A-R-T--------------------*\
+| Change Status Bar Width        |
+\*------------------------------*/
+
+.data.status { width: 3px !important; }
+.list-table-data { padding-left: 0px; }
+
+/*------------------------E-N-D-*/
+
+/*-S-T-A-R-T--------------------*\
+| Horizontal Tags R0.3           |
+\*------------------------------*/
+.list-table-data{padding-bottom:11px}.data.tags{position:absolute;left:0;top:0;z-index:2;display:flex!important;width:0;height:100%;padding:0!important;align-items:flex-end}.data.tags div{max-width:980px;margin:0 0 4px 80px;font-size:0;white-space:nowrap}.data.tags span{display:inline-block;padding:0}.data.tags span a{padding:1px 8px!important;margin:0 4px 0 0;white-space:nowrap}.data.tags span a[href*="=Favo"]{padding:0!important}.data.tags a.edit{right:-1060px}.data.tags textarea{right:-1060px}
+/*------------------------E-N-D-*/
+
+/*-S-T-A-R-T--------------------*\
+| CatCol Header Text R0.0        |
+\*------------------------------*/
+.status-menu .status-button{transition:color .3s ease}.status-menu .status-button.on:nth-of-type(1),.status-menu .status-button:nth-of-type(1):hover{color:var(--accent)!important}.status-menu .status-button.on:nth-of-type(2),.status-menu .status-button:nth-of-type(2):hover{color:var(--watching)!important}.status-menu .status-button.on:nth-of-type(3),.status-menu .status-button:nth-of-type(3):hover{color:var(--completed)!important}.status-menu .status-button.on:nth-of-type(4),.status-menu .status-button:nth-of-type(4):hover{color:var(--onhold)!important}.status-menu .status-button.on:nth-of-type(5),.status-menu .status-button:nth-of-type(5):hover{color:var(--dropped)!important}.status-menu .status-button.on:nth-of-type(6),.status-menu .status-button:nth-of-type(6):hover{color:var(--plantowatch)!important}
+/*------------------------E-N-D-*/
+
+/*-S-T-A-R-T--------------------*\
+| Favourite Hearts (Left) R0.4   |
+\*------------------------------*/
+.data.tags span{padding:0}.data.tags span a{margin:1px 0}.data.tags span a[href*="=Favorite"],.data.tags span a[href*="=Favourite"]{position:absolute;left:-34px;top:calc(50% - 13px);width:26px;height:26px;padding:0;background:var(--bg);border-radius:50%;color:#ffcd3c!important;font-size:0!important;line-height:23px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.2)}.data.tags span a[href*="=Favorite"]:before,.data.tags span a[href*="=Favourite"]:before{content:"★";font-size:21px}
+/*------------------------E-N-D-*/
+
+/*-S-T-A-R-T--------------------*\
+| Cry Droplets (Left) R0.4   |
+\*------------------------------*/
+.data.tags span{padding:0}.data.tags span a{margin:1px 0}.data.tags span a[href*="=Emotional"]{position:absolute;left:-34px;top:calc(50% - 13px);width:12px;height:26px;padding:0;background:var(--bg);border-radius:50%;color:#d5e1e6!important;font-size:0!important;line-height:30px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.2)}.data.tags span a[href*="=Emotional"]:before{content:"☁";font-size:19px}
+/*------------------------E-N-D-*/
+
+.data.tags span a[href*="=Comedy"] { background: BGCOLOUR; color: #DAA520 !important }
+
+.data.tags span a[href*="=Adventure"] { background: BGCOLOUR; color: #2E8B57 !important }
+
+.data.tags span a[href*="=Fantasy"] { background: BGCOLOUR; color: #9400D3 !important }
+
+.data.tags span a[href*="=Action"] { background: BGCOLOUR; color: #CD5C5C !important }
+
+.data.tags span a[href*="=Horror"] { background: BGCOLOUR; color: #800000 !important }
+
+.data.tags span a[href*="=Romance"] { background: BGCOLOUR; color: #DC143C !important }
+
+.data.tags span a[href*="=Sci-Fi"] { background: BGCOLOUR; color: #98B6B1 !important }
+
+.data.tags span a[href*="=Drama"] { background: BGCOLOUR; color: #2165b0 !important }
+
+.data.tags span a[href*="=Mystery"] { background: BGCOLOUR; color: #F75C03 !important }
+
+.data.tags span a[href*="=Slice of Life"] { background: BGCOLOUR; color: #DB6C79 !important }
+
+.data.tags span a[href*="=Supernatural"] { background: BGCOLOUR; color: #C0DF85 !important }
