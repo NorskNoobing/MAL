@@ -1,6 +1,6 @@
 /* Theme Customiser Settings
 https://github.com/ValerioLyndon/Theme-Customiser
-^TC{"data":"https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified Theme/clarified.json","options":{"theme":"dark","cover":"https://i.imgur.com/WaLokPG.jpeg","background-opacity":"0.5","auxiliary-background-opacity":"0","cover-shadow-intensity":"0.5"},"mods":{"avatar":{"url":"https://i.imgur.com/7RnxFkI.png"},"character":{"url":"https://i.pinimg.com/originals/56/b3/d2/56b3d2cdf4082b5eeaa2c9da3cf34cd0.png"},"hover-images":{},"highlight-favourites":{"colour":"rgba(255, 233, 96, 0.53)","icon":"⭐","tag":"Favorite"},"header-size":{"height":"350px"},"blur-hentai-auto":{},"emoji-genres":{},"list-width":{"width":"1360px"}},"theme":"Clarified"}TC$*/
+^TC{"data":"https://valeriolyndon.github.io/MAL-Public-List-Designs/Clarified Theme/clarified.json","options":{"theme":"dark","cover":"https://i.imgur.com/WaLokPG.jpeg","background-opacity":"0.5","auxiliary-background-opacity":"0","cover-shadow-intensity":"0.5"},"mods":{"avatar":{"url":"https://i.imgur.com/7RnxFkI.png"},"character":{"url":"https://i.pinimg.com/originals/56/b3/d2/56b3d2cdf4082b5eeaa2c9da3cf34cd0.png"},"hover-images":{},"highlight-favourites":{"colour":"rgba(255, 233, 96, 0.53)","icon":"⭐","tag":"Favorite"},"header-size":{"height":"350px"},"blur-hentai-auto":{},"emoji-genres":{},"list-width":{"width":"1360px"},"auto-hide-tags":{"delay":"0.4"},"switch-tags":{}},"theme":"Clarified"}TC$*/
 
 /**
  * "Clarified" by Valerio Lyndon
@@ -161,6 +161,139 @@ https://github.com/ValerioLyndon/Theme-Customiser
  }
  
  /* END of Enlarged Hover Images */
+ 
+ /**
+  * Switch Tags & Genres
+  * v1.2.0
+  */
+ 
+ :root {
+     /* variables for compatibility with other mods */
+     --tag-align: left;
+     --genre-align: right;
+ }
+ 
+ .data.tags.tags.tags.tags {
+     margin-left: 0;
+     text-align: var(--tag-align) !important;
+ }
+ 
+ .anime .data.tags ~ .genre,
+ .manga .data.tags ~ .genre:has(~.genre),
+ .manga .list-table-header:not(:has(.demographic)) ~ * .tags ~ .genre {
+     margin-left: auto;
+     text-align: var(--genre-align) !important;
+ }
+ 
+ /* END of Switch Tags & Genres */
+ 
+ /**
+  * Auto-hiding Tags & Genres
+  * v1.0.0
+  */
+ 
+ /*
+ If anyone is wondering why the selectors in this mod are pure fucking insanity,
+ blame MAL devs for typoing the demographic class on the mangalist so now I have
+ to write this god awful code. Thanks for coming to my TED talk.
+ */
+ 
+ @supports selector(:has(*)) { /* wrap in a supports statement because otherwise this mod will look like shit */
+ 
+ .data.tags,
+ .anime .data.genre,
+ .manga .data.genre:has(~.genre),
+ .manga .list-table-header:not(:has(.demographic)) ~ * .genre {
+     display: grid !important;
+     grid-auto-columns: max-content;
+     grid-auto-flow: column;
+     grid-template-rows: 0fr;
+     justify-content: var(--genre-align, left); /* only affects genre as tags have a full-width div */
+     overflow: hidden; /* needed for compat. w/ review tags */
+     transition: grid-template-rows .18s ease 0s;
+ }
+ .data.tags {
+     grid-auto-columns: 1fr;
+ }
+ .list-table-data:hover .data.tags,
+ .anime .list-table-data:hover .data.genre,
+ .manga .list-table-data:hover .data.genre:has(~.genre),
+ .manga .list-table-header:not(:has(.demographic)) ~ .list-table-data:hover .genre {
+     grid-template-rows: 1fr;
+     transition-delay: 0.4s;
+ }
+ .data.tags div,
+ .anime .data.genre span,
+ .manga .data.genre:has(~.genre) span,
+ .manga .list-table-header:not(:has(.demographic)) ~ * .genre span {
+     overflow: hidden;
+ }
+ .data.tags a {
+     white-space: nowrap;
+ }
+ 
+ /* handle empty column text */
+ 
+ .data.tags::after,
+ .anime .data.genre::after,
+ .manga .data.genre:has(~.genre)::after,
+ .manga .list-table-header:not(:has(.demographic)) ~ * .genre::after {
+     height: 0;
+     overflow: hidden;
+     line-height: 22px;
+     transition: height .18s ease 0s;
+ }
+ .list-table-data:hover .data.tags::after,
+ .anime .list-table-data:hover .data.genre::after,
+ .manga .list-table-data:hover .data.genre:has(~.genre)::after,
+ .manga .list-table-header:not(:has(.demographic)) ~ .list-table-data:hover .genre::after {
+     height: 22px;
+     transition-delay: 0.4s;
+ }
+ 
+ /* hide empty column text when irrelevant */
+ 
+ .anime .list-table-data:has(.tags div:empty) .data.genre:empty::after,
+ .manga .list-table-data:has(.tags div:empty) .data.genre:has(~.genre):empty,
+ .manga .list-table:not(:has(.header-title.demographic)) .list-table-data:has(.tags div:empty) .data.genre:empty {
+     display: none;
+ }
+ 
+ /* loading bar */
+ .data.tags div:not(:empty)::before {
+     content: "";
+     position: absolute;
+     inset: auto 14px -3px 36px;
+     width: 0;
+     height: 2px;
+     border-radius: 100px;
+     background: var(--page-category);
+ }
+ .list-table-data:hover .data.tags div::before {
+     animation:
+         0.4s ease-in-out 0s barfill both,
+         calc(0.4s * 0.325) ease-in-out calc(0.4s * 0.925) barfade both;
+ }
+ 
+ @keyframes barfill {
+     from {
+         width: 0;
+     } to {
+         width: calc(100% - 50px);
+     }
+ }
+ 
+ @keyframes barfade {
+     from {
+         opacity: 1;
+     } to {
+         opacity: 0;
+     }
+ }
+     
+ } /* end @supports */
+ 
+ /* END of Auto-hiding Tags & Genres */
  
  /**
   * Highlight Favorites
