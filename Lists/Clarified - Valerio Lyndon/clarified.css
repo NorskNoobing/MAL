@@ -25,7 +25,7 @@ https://github.com/ValerioLyndon/Theme-Customiser
      --neutral: #161516;
      
      /* status colours */
-     --all-items: hsl(311, 40%, 51%);
+     --all-items: #399bcc;
      --current: hsl(125, 70%, 29.7%);
      --completed: hsl(223, 40%, 51.2%);
      --onhold: hsl(46, 60%, 32.45%);
