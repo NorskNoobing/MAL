@@ -1,0 +1,2 @@
+submissions/bunkasai-2026/**/*.psd filter=lfs diff=lfs merge=lfs -text
+submissions/bunkasai-2026/**/*.af filter=lfs diff=lfs merge=lfs -text
